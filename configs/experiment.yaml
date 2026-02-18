@@ -1,0 +1,31 @@
+# STRAW experiment configuration
+# ──────────────────────────────────────────────
+# Edit this file to add / modify experiment sweeps.
+# Each experiment inherits from `defaults` and can override any key.
+
+defaults:
+  lr: 0.0001
+  batch_size: 128
+  device: auto          # "auto" picks cuda if available, else cpu
+  data_root: ./data
+  seed: 42
+  models:
+    - standalone
+    - resnet34
+    - modulator
+
+experiments:
+  - name: full_rank16
+    train_subset: 1.0
+    rank: 16
+    num_epochs: 10
+
+  - name: 10pct_rank16
+    train_subset: 0.1
+    rank: 16
+    num_epochs: 5
+
+  - name: 20pct_rank32
+    train_subset: 0.2
+    rank: 32
+    num_epochs: 5
