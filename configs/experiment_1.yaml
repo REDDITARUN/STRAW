@@ -10,7 +10,18 @@ defaults:
   data_root: ./data
   seed: 42
   models:
+    - standalone
+    - resnet34
     - modulator
+    - modulator_trm
+
+  # Optional: TRM+RoPE encoder knobs (used by modulator_trm)
+  trm_token_dim: 64
+  trm_heads: 4
+  trm_steps: 4
+  trm_mlp_ratio: 4.0
+  trm_rope_theta: 10000.0
+  trm_dropout: 0.0
 
 experiments:
   - name: full_rank16

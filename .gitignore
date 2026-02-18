@@ -1,4 +1,5 @@
 /data/
+/TinyRecursiveModels/
 outputs/
 __pycache__/
 *.pyc
